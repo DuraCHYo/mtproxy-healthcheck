@@ -1,24 +1,35 @@
-changelog:
-  exclude:
+autolabeler:
+  - label: 'enhancement'
+    title:
+      - '/^feat:/i'
+      - '/^feature:/i'
+      - '/^enhancement:/i'
+  - label: 'bug'
+    title:
+      - '/^fix:/i'
+      - '/^bug:/i'
+  - label: 'ignore-for-release'
+    title:
+      - '/^chore:/i'
+
+categories:
+  - title: 'Exciting New Features 🎉'
     labels:
-      - ignore-for-release
-      - github-actions
-      - skip-changelog
-    authors:
-      - bot-account
-  categories:
-    - title: Breaking Changes 🛠
-      labels:
-        - breaking-change
-    - title: Exciting New Features 🎉
-      labels:
-        - enhancement
-        - feature
-        - feat
-    - title: Bug fixes 🐛
-      labels:
-        - bug
-        - fix
-    - title: Other Changes 🔄
-      labels:
-        - '*'
+      - 'enhancement'
+      - 'feature'
+      - 'feat'
+  - title: 'Bug fixes 🐛'
+    labels:
+      - 'bug'
+      - 'fix'
+  - title: 'Other Changes 🔄'
+    labels:
+      - '*'
+
+exclude:
+  labels:
+    - 'ignore-for-release'
+    - 'github-actions'
+    - 'skip-changelog'
+  authors:
+    - 'bot-account'
