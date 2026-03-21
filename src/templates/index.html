@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>MTProto Status</title>
+    <style>
+        body {
+            background: #121212;
+            color: #e0e0e0;
+            font-family: 'Segoe UI', sans-serif;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .proxy-card {
+            background: #1e1e1e;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-left: 5px solid #333;
+        }
+
+        .status-active {
+            border-left-color: #00c853;
+        }
+
+        .status-down {
+            border-left-color: #ff5252;
+        }
+
+        .dot {
+            height: 12px;
+            width: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .dot-active {
+            background-color: #00c853;
+            box-shadow: 0 0 8px #00c853;
+        }
+
+        .dot-down {
+            background-color: #ff5252;
+            box-shadow: 0 0 8px #ff5252;
+        }
+
+        .link {
+            font-size: 0.8em;
+            color: #aaa;
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .link:hover {
+            color: #fff;
+        }
+    </style>
+    <meta http-equiv="refresh" content="10">
+</head>
+
+<body>
+    <div class="container">
+        <h1>MTProto Monitor</h1>
+        {% for link, status in proxies.items() %}
+        <div class="proxy-card status-{{ status }}">
+            <div style="display: flex; align-items: center;">
+                <span class="dot dot-{{ status }}"></span>
+                <a href="{{ link }}" class="link">{{ link }}</a>
+            </div>
+            <span style="font-weight: bold; color: {{ '#00c853' if status == 'active' else '#ff5252' }}">
+                {{ status.upper() }}
+            </span>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+
+</html>

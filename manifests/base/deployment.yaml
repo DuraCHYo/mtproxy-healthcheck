@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mtproxy-validator
+spec:
+  selector:
+    matchLabels:
+      app: mtproxy-validator
+  template:
+    metadata:
+      labels:
+        app: mtproxy-validator
+    spec:
+      containers:
+        - name: mtproxy-validator
+          image: ghcr.io/DuraCHYo/mtproxy-validator
+          envFrom:
+            - secretRef:
+                name: tgapi-developer-token
+          resources:
+            limits:
+              memory: '128Mi'
+              cpu: '20m'
+            requests:
+              memory: '64Mi'
+              cpu: '10m'
+          ports:
+            - containerPort: 8000
