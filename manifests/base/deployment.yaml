@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: mtproxy-validator
-          image: ghcr.io/DuraCHYo/mtproxy-validator
+          image: ghcr.io/durachyo/mtproxy-validator
           envFrom:
             - secretRef:
                 name: tgapi-developer-token
