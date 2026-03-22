@@ -4,5 +4,5 @@ resources:
   - base/
 
 images:
-  - name: ghcr.io/DuraCHYo/mtproxy-validator
-    newTag: "v1.0.0"
+  - name: ghcr.io/durachyo/mtproxy-validator
+    newTag: 'v1.0.0'
