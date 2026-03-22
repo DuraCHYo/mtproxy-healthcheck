@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mtproxy-validator
+  name: mtproxy-healthcheck
 spec:
   selector:
     matchLabels:
-      app: mtproxy-validator
+      app: mtproxy-healthcheck
   template:
     metadata:
       labels:
-        app: mtproxy-validator
+        app: mtproxy-healthcheck
     spec:
       containers:
-        - name: mtproxy-validator
+        - name: mtproxy-healthcheck
           image: ghcr.io/durachyo/mtproxy-healthcheck
           envFrom:
             - secretRef:
