@@ -94,7 +94,9 @@ async def worker():
 @app.get("/", response_class=HTMLResponse)
 async def index(request: Request):
     return templates.TemplateResponse(
-        "index.html", {"request": request, "proxies": proxy_results}
+        request=request,
+        name="index.html",
+        context={"proxies": proxy_results},
     )
 
 
