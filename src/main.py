@@ -70,10 +70,16 @@ async def worker():
 
                 try:
                     await asyncio.wait_for(client.connect(), timeout=5)
-                    is_online = client.is_connected()
-                    proxy_results[line] = "up" if is_online else "down"
-                except:
-                    proxy_results[line] = "down"
+
+                    if client.is_connected():
+                        proxy_results[line] = "up"
+                    #     print(f"Success: {line}")
+                    # else:
+                    #     print(f"Down: {line}")
+
+                except Exception as e:
+                    print(f"Error connecting to {line}: {e}")
+
                 finally:
                     await client.disconnect()
 
