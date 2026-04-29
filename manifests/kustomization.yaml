@@ -5,4 +5,4 @@ resources:
 
 images:
   - name: ghcr.io/durachyo/mtproxy-healthcheck
-    newTag: 'v1.1.0'
+    newTag: "v1.1.0"
